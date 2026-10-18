@@ -1,0 +1,21 @@
+.DS_Store
+/target/
+node_modules/
+.venv/
+__pycache__/
+dist/
+build/
+.env
+.env.*
+!.env.example
+*.log
+*.pcap
+*.pcapng
+*.key
+*.pem
+*.p12
+*.mobileprovision
+*.keystore
+# Real user media and pairing databases must not enter fixtures.
+# Local link to the owner's shared skill; recreate per workstation.
+/.agents/skills/evolve-ai-instructions
