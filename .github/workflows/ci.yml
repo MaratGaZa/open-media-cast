@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  http-contract-tests:
+    name: HTTP contract tests (Python 3.13)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PIP_DISABLE_PIP_VERSION_CHECK: "1"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+
+      - name: Install pinned test dependencies
+        run: |
+          python --version
+          python -m pip install -r tools/protocol-lab/requirements-tests.txt -r tools/protocol-lab/requirements-ci.txt
+          python -m pip check
+          python -m pip freeze
+
+      - name: Run T01 HTTP contract tests
+        run: |
+          python - <<'PY'
+          import unittest
+          suite = unittest.defaultTestLoader.discover(
+              "tools/protocol-lab", pattern="test_media_server.py")
+          if suite.countTestCases() == 0:
+              raise SystemExit("No T01 tests discovered")
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          raise SystemExit(0 if result.wasSuccessful() else 1)
+          PY
