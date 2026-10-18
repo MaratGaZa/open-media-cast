@@ -1,6 +1,6 @@
 # Runbook: разработка, CI и выпуск
 
-Draft 0.1 · 2026-10-18. Это контракт будущего pipeline, не установленный workflow. Manifests и CI YAML пока отсутствуют; продуктовые команды ниже запускаются только после появления соответствующего проекта.
+Редакция 2026-10-19. Цикл изменения задан владельцем; автоматический pipeline ещё не установлен. Manifests и CI YAML пока отсутствуют; продуктовые команды ниже запускаются только после появления соответствующего проекта.
 
 ## Сейчас: документация
 
@@ -10,9 +10,11 @@ Draft 0.1 · 2026-10-18. Это контракт будущего pipeline, не
 
 Записать точные версии Rust, Node/package manager, Tauri, SDK/Xcode, Python для lab, FFmpeg и OS. Закрепить toolchain, lockfiles и CI actions; непинованные `latest` не использовать как доказательство воспроизводимости. Не устанавливать весь стек заранее только из-за упоминания в исследовании.
 
-Проверить origin выбранного репозитория. Сейчас remote не задан. GitHub Actions — кандидат после выбора hosting; можно начать с локальных команд без GitHub и платных runners.
+Source размещён в публичном [MaratGaZa/open-media-cast](https://github.com/MaratGaZa/open-media-cast); капсула остаётся локальной. Для main активен ruleset require PR, formal approvals=0, без bypass. Комментарий REVIEW и соответствие head SHA проверяются по SDD, а не этим ruleset. Actions и required checks ещё не настроены: отдельная [задача #2](https://github.com/MaratGaZa/open-media-cast/issues/2) после подготовки правил и README.
 
-## Цепочка PR
+## Проверки по типу изменения
+
+Порядок работы, полномочия и merge gate заданы только в [SDD](SDD_AND_AGENTS.md#цикл-изменения--каноническое-правило). Ниже перечислены области проверок, а не отдельный цикл PR.
 
 1. **Docs/contracts:** ссылки, traceability, проверка схем и совместимости изменений.
 2. **Core:** форматирование, lint, unit/property/contract tests, обработка отмены и stale events.
