@@ -15,7 +15,7 @@ E0 — источник/гипотеза; E1 — unit/contract с контрол
 | TEST-MEDIA-01 | Probe/выбор источника | Синтетические файлы с заранее известными потоками; cancel выбора, unreadable/corrupt file, Unicode path | E1/E2 |
 | TEST-MEDIA-02 | Media planning | Совместимый profile → direct; несовместимый audio → audio transcode; неподдержанный codec → контролируемый план/отказ; реальный output перепроверен probe | E1/E2 |
 | TEST-MEDIA-03 | Subtitles/tracks/seek | Видимый текст/правильный язык на RX, синхронность после seek, cleanup burn-in job; fixture с видимыми time markers | E2/E3 |
-| TEST-HTTP-01 | Законченный файл | HEAD/GET, первый/последний/suffix range, 206/416, корректные длины и байты, досрочное закрытие клиента | E2 |
+| TEST-HTTP-01 | Законченный файл / DLNA metadata | HEAD/GET, range/206/416, длины и байты; DLNA contentFeatures/transferMode согласованы с DIDL protocolInfo и фактическим seek; не заявлены неподдержанные OP/FLAGS | E2 |
 | TEST-HTTP-02 | Изоляция URL | Чужой/просроченный token, traversal/encoded traversal, другой путь и session mismatch не раскрывают файл; revoke завершает доступ | E1/E2 |
 | TEST-RX-01 | Apple TV 3 | Discovery, auth, first frame+audio, pause/resume/seek/stop, повторное подключение; фактическое наблюдение | E3 |
 | TEST-RX-02 | Google Cast | Реальный video receiver, load/status/control, доступ к LAN URL, error/cancel | E3 |
@@ -23,7 +23,7 @@ E0 — источник/гипотеза; E1 — unit/contract с контрол
 | TEST-SESSION-01 | Race/cancel | Событие старого session ID не меняет новый; cancel во время probe/prepare/connect; bounded retry | E1/E2 |
 | TEST-SESSION-02 | Recovery/resources | Потеря сети, sleep/wake, receiver restart, disk-full, app restart; нет оставшихся owned process/socket/cache вне политики | E2/E3 |
 | TEST-SEC-01 | Диагностика/границы | Синтетические секреты и пути отсутствуют в обычных логах, args не интерпретируются shell, нет выдачи произвольного файла | E1/E2 |
-| TEST-PKG-01 | Установка | Готовый artifact на чистой целевой ОС без dev tools, архитектура, запуск и удаление | E4 |
+| TEST-PKG-01 | Установка | Artifact без dev tools; отдельно macOS 14 и 15+ .app: Local Network allow/deny, описание/Bonjour services, повторный запуск и Application Firewall; запуск из Terminal не заменяет проверку .app | E4 |
 | TEST-UI-01 | Управление UI | Keyboard/touch, доступные подписи, состояния pending/error, повторные команды не создают дубликаты | E1/E3 |
 | TEST-PORT-01 | Порт | Все обязательные сценарии на данной ОС плюс специфичные permissions/lifecycle/backend | E2/E3/E4 |
 

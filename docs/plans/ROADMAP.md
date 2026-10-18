@@ -7,9 +7,10 @@ Draft 0.1 · 2026-10-18. Порядок платформ задан владел
 | Этап | Результат | Gate выхода | Статус |
 |---|---|---|---|
 | D0 — baseline | Документы, инвентарь, 2 репозитория | Review и принятие SPEC/первого исследовательского объёма | [~] Пакет Draft подготовлен; приёмка не проведена |
+| E00.5 — utility smoke | Короткий опыт на Apple TV 3 и Sony, до принятия полного SPEC | Наблюдение видео/звука и отдельных control actions, результат включая неудачи | [ ] Приёмники не запускались; Cast отложен из-за отсутствия доступа |
 | D1 — feasibility | Синтетический файл воспроизводится через три адаптера | Реальные receiver reports, auth/control и ограничения | [ ] Нет запусков; Cast hardware не указан |
 | D2 — архитектура | Принятые стек, delivery, зависимости, минимальный Android integration check | ADR-002 Accepted, выбор FFmpeg/Python runtime и пути Android | [ ] |
-| M1 — macOS vertical slice | Выбор файла/устройства, direct play, управление | Apple TV 3 + Sony + реальный Cast; очистка и ошибки | [ ] |
+| M1 — macOS vertical slice | Выбор файла/устройства, direct play, управление, без внешних субтитров | Apple TV 3 + Sony + реальный Cast; очистка и ошибки | [ ] |
 | M2 — macOS v1 | Согласованный media scope, UI, packaging | Полная матрица v1, минимальная macOS 14, установка на чистой машине | [ ] |
 | L1 — Fedora Xfce | Порт подтверждённых возможностей | Реальная Fedora/Xfce и package install; три протокола | [ ] |
 | W1 — Windows 10/11 | Нативный Windows-порт | Отдельные 10 и 11 smoke/hardware results | [ ] |

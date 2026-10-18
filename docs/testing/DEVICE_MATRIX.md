@@ -4,12 +4,12 @@
 
 | Sender | Receiver | Проверяемая функция | Статус / evidence |
 |---|---|---|---|
-| Mac mini M4, OS unknown | Apple TV 3, firmware unknown | Системный AirPlay | Сообщение владельца об успехе; не тест нашего приложения |
+| Mac mini M4, macOS 15.7.9 (24G830) | Apple TV 3, firmware unknown | Системный AirPlay | Сообщение владельца об успехе; не тест нашего приложения |
 | Mac mini M4 | Apple TV 3 | TEST-RX-01 | planned, нет результата |
 | Mac mini M4 | Sony KDL-48W605B | TEST-RX-03 | planned; наличие Renderer документировано, runtime unverified |
-| Mac mini M4 | Google Cast, модель не указана | TEST-RX-02 | blocked: тестовый receiver не указан |
+| Mac mini M4 | Google Cast, модель не указана | TEST-RX-02 | blocked: владелец подтвердил отсутствие доступа 2026-10-18; ближайший smoke — Apple TV/Sony |
 | macOS 14 ARM64 test host | Все RX | Минимальная ОС | unverified: host не определён |
-| Fedora Xfce, version/arch unknown | Все RX | TEST-PORT-01 Linux | planned |
+| Fedora 44/45 Xfce (цель из review), установленная version/arch unknown | Все RX | TEST-PORT-01 Linux | planned |
 | Windows 10 и 11, host unknown | Все RX | TEST-PORT-01 Windows | planned |
 | Nothing Phone (1), Android unknown | Все RX | TEST-PORT-01 Android | planned |
 | Xiaomi/Redmi/Poco, models unknown | Все RX | OEM lifecycle Android | planned |
