@@ -1,6 +1,6 @@
 # Runbook: разработка, CI и выпуск
 
-Редакция 2026-10-19. Цикл изменения задан владельцем; автоматический pipeline ещё не установлен. Manifests и CI YAML пока отсутствуют; продуктовые команды ниже запускаются только после появления соответствующего проекта.
+Редакция 2026-10-19. Цикл изменения задан владельцем; для T01 добавлен [GitHub Actions workflow](GITHUB_ACTIONS.md). Остальной продуктовый pipeline ниже остаётся Draft: manifests приложения отсутствуют, продуктовые команды запускаются только после их появления.
 
 ## Сейчас: документация
 
@@ -10,7 +10,7 @@
 
 Записать точные версии Rust, Node/package manager, Tauri, SDK/Xcode, Python для lab, FFmpeg и OS. Закрепить toolchain, lockfiles и CI actions; непинованные `latest` не использовать как доказательство воспроизводимости. Не устанавливать весь стек заранее только из-за упоминания в исследовании.
 
-Source размещён в публичном [MaratGaZa/open-media-cast](https://github.com/MaratGaZa/open-media-cast); капсула остаётся локальной. Для main активен ruleset require PR, formal approvals=0, без bypass. Комментарий REVIEW и соответствие head SHA проверяются по SDD, а не этим ruleset. Actions и required checks ещё не настроены: отдельная [задача #2](https://github.com/MaratGaZa/open-media-cast/issues/2) после подготовки правил и README.
+Source размещён в публичном [MaratGaZa/open-media-cast](https://github.com/MaratGaZa/open-media-cast); капсула остаётся локальной. Для main активен ruleset require PR, formal approvals=0, без bypass. Комментарий REVIEW и соответствие head SHA проверяются по SDD, а не этим ruleset. События Actions, required check и приёмка запусков определены в [runbook CI](GITHUB_ACTIONS.md); наличие YAML само по себе не подтверждает успешный запуск.
 
 ## Проверки по типу изменения
 

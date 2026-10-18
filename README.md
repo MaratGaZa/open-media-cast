@@ -32,8 +32,8 @@
   сервера. Проверки выполняются на loopback с синтетическими байтами; они не
   подтверждают кодеки или воспроизведение на телевизоре.
 
-GitHub Actions ещё не настроен. Автоматизация тестов на PR и после merge —
-отдельная [задача #2](https://github.com/MaratGaZa/open-media-cast/issues/2).
+[GitHub Actions](.github/workflows/ci.yml) запускает T01 на PR и push в main.
+Окружение и порядок проверки запусков описаны в [runbook CI](docs/runbooks/GITHUB_ACTIONS.md).
 
 ## Запуск тестов HTTP-эталона
 
