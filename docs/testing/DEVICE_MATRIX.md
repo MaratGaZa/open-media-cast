@@ -8,6 +8,7 @@
 | Mac mini M4 | Apple TV 3 | TEST-RX-01 | planned, нет результата |
 | Mac mini M4 | Sony KDL-48W605B | TEST-RX-03 | planned; наличие Renderer документировано, runtime unverified |
 | Mac mini M4 | Google Cast, модель не указана | TEST-RX-02 | blocked: владелец подтвердил отсутствие доступа 2026-10-18; ближайший smoke — Apple TV/Sony |
+| Mac mini M4 | Apple TV 4 у друга, точная модель/tvOS unknown | TEST-RX-04, дополнительная проверка MVP | planned: владелец сообщил о возможном доступе; дата и результат неизвестны |
 | macOS 14 ARM64 test host | Все RX | Минимальная ОС | unverified: host не определён |
 | Fedora 44/45 Xfce (цель из review), установленная version/arch unknown | Все RX | TEST-PORT-01 Linux | planned |
 | Windows 10 и 11, host unknown | Все RX | TEST-PORT-01 Windows | planned |
@@ -15,6 +16,10 @@
 | Xiaomi/Redmi/Poco, models unknown | Все RX | OEM lifecycle Android | planned |
 
 Android-телефоны — будущие отправители, не квалифицированные Cast-приёмники. Один успешный приёмник не закрывает семейство или всю версию ОС. Изменение firmware, encoder build или delivery strategy требует оценки повторных тестов.
+
+## E00.5: сторонние утилиты (отдельно от продуктовой матрицы)
+
+[Отчёт от 2026-10-18](E00_5_2026-10-18.md): pyatv 0.18.0, Apple TV 3/ATV SW 8.4.4 — владелец подтвердил видео, звук, pause/resume и seek в обе стороны. Активный stop подтверждён телеметрией, завершением процесса и наблюдением владельца. Sony: video/audio и pause через go2tv 2.7.0, полный control проход через SOAP AVTransport с раздачей go2tv — подтверждены владельцем; детали и ограничения в отчёте. TEST-RX продуктового приложения остаются planned.
 
 ## Форма записи результата
 

@@ -12,10 +12,10 @@ Draft 0.1 · 2026-10-18. Сейчас разрешена подготовка д
 | E02 | Синтетическое медиа и сервер законченного файла; E01 | Клип + checksum + probe; корректные HEAD/Range/206/416 и закрытие сервера; TEST-HTTP-01/02 | Произвольный доступ к файлам или неверный Range — stop перед реальным видео |
 | E03 | AirPlay spike на Apple TV 3; E02 | Pairing/start/pause/seek/stop, реальные наблюдения, точная версия pyatv; TEST-RX-01 | Нуждается в ослаблении auth либо нет видео — зафиксировать, не обходить защиту |
 | E04 | DLNA spike на Sony; E02 | SSDP + service description, SetURI/play/pause/seek/stop в доступном API; TEST-RX-03 | DMR не обнаружен или action unsupported — не подменять тест просмотром медиатеки |
-| E05 | Cast spike; E02 и hardware access | Discovery/load/status/control, local URL, TEST-RX-02 | Нет Cast-приёмника — unverified, emulator не закрывает критерий |
-| E06 | Сравнить delivery и принять ADR-002; E03–E05 (или явно признанные blockers) | direct/remux/transcode, seek, dependency/license inventory, решение Python/Rust и ограниченный Android feasibility | Нельзя обещать Android, если нужный runtime не имеет проверенного пути упаковки |
+| E05 | Cast spike для полного v1, после M1; E02 и hardware access | Discovery/load/status/control, local URL, TEST-RX-02 | Нет Cast-приёмника — unverified, emulator не закрывает критерий |
+| E06 | Сравнить delivery и принять ADR-002; E03–E04 для M1; E05 и streaming/transcode отдельно до полного v1 | Для M1: законченный MP4, seek, dependency/license inventory и минимальный host/adapter stack. HLS, remux/transcode и Android feasibility отложены до расширения | Нельзя обещать Android, если нужный runtime не имеет проверенного пути упаковки |
 | E07 | Core и контрактные тесты; E06 | Session IDs, cancellation, typed errors, stale-event tests; TEST-SESSION-01 | UI/протоколы протекли в domain — исправить границу до расширения |
-| E08 | macOS direct-play UI и адаптеры; E07 | Один согласованный поток end-to-end, все три протокола отдельно, доступность UI; TEST-UI-01 | Успешная команда без видео не считается playback |
+| E08 | macOS direct-play UI и адаптеры; E07 | M1: один совместимый MP4, Apple TV 3 + Sony, start/pause/resume/seek/stop, ясные ошибки, cleanup и Local Network из .app; Cast не prerequisite; TEST-UI-01 | Успешная команда без видео не считается playback |
 | E09 | Media planner и подготовка; E08 | Выбор direct/remux/audio/full transcode, progress/cancel/cache limits; TEST-MEDIA-01/02 | На тестовом profile не хватает ресурсов — явный отказ/подготовка, не бесконечный loading |
 | E10 | Согласованный scope tracks/subtitles/queue; E09, после M1 | TEST-MEDIA-03, native/WebVTT или burn-in по профилю, seek после преобразования | Audio-only/RAOP и очередь требуют отдельных решений по scope |
 | E11 | Recovery, privacy и квалификация macOS; E10 | Сеть, disk-full, restart, cleanup; TEST-SESSION-02 и TEST-SEC-01; отдельная macOS 14 | Если нет минимальной ОС — minimum runtime остаётся unverified |
@@ -23,6 +23,10 @@ Draft 0.1 · 2026-10-18. Сейчас разрешена подготовка д
 | E13 | Fedora Xfce port; E12 + версия/архитектура Linux | Нативный UI, discovery, media backend, три RX, установка package; TEST-PORT-01 | Контейнерный успех не равен Xfce runtime; SELinux/firewall не отключать |
 | E14 | Windows 10/11 port; E13 + стенды | Обе ОС, пути Unicode, cancel дерева процессов, firewall prompt, package | WSL не заменяет Windows native evidence |
 | E15 | Android sender; E14 + устройства/SDK decision | Documents URI, lifecycle, permissions, MediaCodec/backend, три RX; 2 семейства смартфонов | Закрытие экрана/энергосбережение теряет сессию — не объявлять background ready |
+
+### Дополнительный стенд Apple TV 4
+
+После работающего M1 провести отдельный TEST-RX-04 у друга владельца: уточнить модель/tvOS, штатное pairing, повторить базовый клип и управление из приложения. Доступ согласовать перед опытом. При несовместимости записать отдельную задачу adapter/auth; не переносить успех Apple TV 3 на эту модель.
 
 ## Карточка для запуска
 

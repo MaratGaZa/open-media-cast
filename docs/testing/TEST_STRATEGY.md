@@ -19,6 +19,7 @@ E0 — источник/гипотеза; E1 — unit/contract с контрол
 | TEST-HTTP-02 | Изоляция URL | Чужой/просроченный token, traversal/encoded traversal, другой путь и session mismatch не раскрывают файл; revoke завершает доступ | E1/E2 |
 | TEST-RX-01 | Apple TV 3 | Discovery, auth, first frame+audio, pause/resume/seek/stop, повторное подключение; фактическое наблюдение | E3 |
 | TEST-RX-02 | Google Cast | Реальный video receiver, load/status/control, доступ к LAN URL, error/cancel | E3 |
+| TEST-RX-04 | Apple TV 4 друга, дополнительная проверка M1 | Точная модель/tvOS, штатное pairing, video/audio/control из приложения; доступ согласовать отдельно | E3 |
 | TEST-RX-03 | Sony DLNA | Реальный DMR/services, URI/play/pause/seek/stop, отдельный результат каждого действия | E3 |
 | TEST-SESSION-01 | Race/cancel | Событие старого session ID не меняет новый; cancel во время probe/prepare/connect; bounded retry | E1/E2 |
 | TEST-SESSION-02 | Recovery/resources | Потеря сети, sleep/wake, receiver restart, disk-full, app restart; нет оставшихся owned process/socket/cache вне политики | E2/E3 |
@@ -42,3 +43,5 @@ E0 — источник/гипотеза; E1 — unit/contract с контрол
 ## Документация и skills
 
 Проверки initial package: существование локальных ссылок, согласованность REQ/TEST IDs, два Git root, отсутствие source в внешнем индексе, schema/frontmatter skills, отсутствие ложных completed claims. Не создавать unit-тесты, которые лишь ищут заголовки документа или повторяют его текст. Независимая поведенческая проверка skills остаётся отдельным возможным этапом.
+
+Для первого M1 обязательны Apple TV 3 и Sony, законченный совместимый MP4 и базовое управление; Cast, transcode/subtitles и порты проверяются на последующих этапах. TEST-RX-04 — дополнительная проверка, не замена TEST-RX-01/03.
